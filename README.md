@@ -25,7 +25,6 @@ Main account: 0x061b95F4eb54e4826f2012b25f583cc3ee112EFE
 1. Export genesis configuration
 1. Which folder to save the genesis specs into? (default = current): genesis.json
 
-
 Start the blockchain
 ```bash
 docker-compose run -d ethereum
@@ -34,4 +33,22 @@ docker-compose run -d ethereum
 Geth console
 ```bash
 docker exec -it <container-name> geth attach
+```
+---
+
+### Geth commands
+
+Get the latest block number
+```
+eth.blockNumber
+```
+
+Get your account address
+```
+eth.coinbase
+```
+
+Get balance of your account
+```
+eth.getBalance(eth.coinbase)
 ```
