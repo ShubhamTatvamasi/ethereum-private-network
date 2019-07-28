@@ -1,0 +1,35 @@
+---
+version: "3"
+services:
+  ethereum:
+    image: ethereum/client-go
+    # restart: always
+    ports:
+      - "8545:8545"
+      - "30303:30303"
+    volumes:
+      - ./ethereum:/root/.ethereum
+      - ./pass.env:/root/pass.env
+    command: >-
+      --networkid 59568
+      --mine
+      --rpc
+      --rpcapi "eth,net,web3,personal,miner"
+      --allow-insecure-unlock
+      --unlock 0x061b95F4eb54e4826f2012b25f583cc3ee112EFE
+      --password /root/pass.env
+  new-account:
+    volumes:
+      - ./ethereum:/root/.ethereum
+    image: ethereum/client-go
+    command: account new
+  help:
+    image: ethereum/client-go
+    command: --help
+  setup:
+    image: ethereum/client-go
+    volumes:
+      - ./ethereum:/root/.ethereum
+      - ./genesis.json:/root/genesis.json:ro
+    command: init /root/genesis.json
+...
