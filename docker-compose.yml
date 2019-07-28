@@ -3,7 +3,6 @@ version: "3"
 services:
   ethereum:
     image: ethereum/client-go
-    # restart: always
     ports:
       - "8545:8545"
       - "30303:30303"
@@ -32,4 +31,10 @@ services:
       - ./ethereum:/root/.ethereum
       - ./genesis.json:/root/genesis.json:ro
     command: init /root/genesis.json
+  puppeth:
+    image: ethereum/client-go:alltools-stable
+    working_dir: /root/puppeth
+    volumes:
+      - ./:/root/puppeth
+    command: puppeth
 ...

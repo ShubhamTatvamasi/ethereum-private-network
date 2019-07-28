@@ -1,13 +1,8 @@
 # ethereum-private-network
 
-Install Ethereum
+Run `puppeth` for setting up private chain
 ```bash
-brew install ethereum
-```
-
-Run `puppeth` for setting up private chain at `~/.puppeth/`
-```bash
-puppeth
+docker-compose run puppeth
 ```
 
 Main account: 0x061b95F4eb54e4826f2012b25f583cc3ee112EFE
@@ -23,7 +18,7 @@ Main account: 0x061b95F4eb54e4826f2012b25f583cc3ee112EFE
 1. Specify your chain/network ID if you want an explicit one (default = random): 59568
 1. Manage existing genesis
 1. Export genesis configuration
-1. Which folder to save the genesis specs into? (default = current): genesis.json
+1. Which folder to save the genesis specs into? (default = current): `enter`
 
 Start the blockchain
 ```bash
